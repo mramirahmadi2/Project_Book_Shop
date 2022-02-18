@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../pages/Home/HomePage.component';
 import Login  from '../pages/Login/login.component';
 import Order from '../pages/panel-order/Order.component';
+import PanelOrderDone from '../pages/panel-order/PanelOrderDone.component';
 
 
 
@@ -23,6 +24,7 @@ const AppRoute = () => {
     <Route path='/' element={<Home/>} />
     <Route path='/Login' element={<Login/>} />
     <Route path='/Order' element={<Order/>} />
+    <Route path='/PanelOrderDone' element={<Order/>} />
 
     </Routes>
     
