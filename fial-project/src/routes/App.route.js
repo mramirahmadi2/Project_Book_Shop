@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from '../pages/Home/HomePage.component';
+import Home  from '../pages/Home/Home.page';
 import Login  from '../pages/Login/login.component';
 import Order from '../pages/panel-order/Order.component';
 

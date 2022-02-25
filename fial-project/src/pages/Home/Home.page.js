@@ -1,14 +1,17 @@
-
 import React from 'react';
+import './style.css';
 import Header from 'layouts/main/component/Header/Header.component';
 
-function Order() {
+function HomePage() {
   return (
     <>
       <Header />
-      <h1>order</h1>
+
+      <h1>HomePage</h1>
+
     </>
+
   );
 }
 
-export default Order;
+export default HomePage;

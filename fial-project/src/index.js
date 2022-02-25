@@ -5,8 +5,10 @@ import App from './App';
 
 
 ReactDOM.render(
-  <>
-    <App />
+  < >
+    <div dir="rtl">
+      <App />
+    </div>
   </>
   ,
   document.getElementById('root')

@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 // import HomePage from './pages/Home/HomePage.component';
 import AppRoute from './routes/App.route';
@@ -9,7 +10,11 @@ function App() {
     <>
      
     
-      <AppRoute/>
+    
+  
+    <AppRoute/>
+   
+      
 
 
     </>
