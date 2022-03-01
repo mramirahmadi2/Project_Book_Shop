@@ -37,7 +37,13 @@ a:link,a:visited{
 .nameCompony{
     margin-right: 20px;
     margin-top: 30px;
+    color: #9747FF;
 }
 .basket{
     margin-left: 10px;
+}
+.paragraph{
+    position: absolute;
+    top: 60px;
+    right: 150px;
 }

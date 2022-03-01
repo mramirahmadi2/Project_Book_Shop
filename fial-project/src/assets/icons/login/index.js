@@ -1,6 +1,6 @@
-import LogoHead from './boosh.svg';
+import LogoHead from './login.svg';
  
-function Logo() {
+function Login() {
     return ( 
         <>
         <img src={LogoHead} alt='mohammad' />
@@ -8,4 +8,4 @@ function Logo() {
         </> );
 }
 
-export default Logo;
+export default Login;
