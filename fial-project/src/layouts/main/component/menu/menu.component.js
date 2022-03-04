@@ -2,7 +2,7 @@ import React from 'react';
 import StyleMenu from './style.module.css';
 import Header from 'layouts/main/component/Header/Header.component';
 import Login from '../../../../assets/icons/login/index';
-import Footer from '../footer/Footer.component';
+
 
 function Menu() {
 
