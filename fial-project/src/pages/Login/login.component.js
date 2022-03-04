@@ -14,7 +14,7 @@ function Login() {
      
         <div >
           <form className='count-form'>
-            <h2 className='title' >ورود به پنل مدیریت فروشگاه ایران کالا</h2>
+            <h2 className='title' >ورود به پنل مدیریت کتاب فروشی بووش</h2>
             <FormControl sx={{ mt: 1 }}>
               <InputLabel sx={{ mt: 1 }} htmlFor="my-input">نام کاربری</InputLabel>
               <Input sx={{ mt: 8 }} id="my-input" aria-describedby="my-helper-text" />

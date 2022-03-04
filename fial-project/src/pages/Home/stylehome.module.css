@@ -1,4 +1,19 @@
 .homeCards{
-  position: absolute;
-  left: 50px;
+  position: relative;
+  margin-right: 350px;
+  margin-top: 140px;
+}
+.new{
+  position: relative;
+  top: 150px;
+  margin-right: 410px;
+   
+  font-size: 25px;
+}
+.novels{
+  position: relative;
+  margin-right: 350px;
+ 
+ 
+  
 }

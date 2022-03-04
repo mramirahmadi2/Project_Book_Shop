@@ -1,0 +1,33 @@
+.footer{
+    width: 100%;
+    height: 400px;
+    background-color: rgb(58, 57, 57);
+}
+.txtfooter{
+    position: relative;
+    color: aliceblue;
+    right: 400px;
+    top: 40px;
+}
+.txtfooter>h4{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.txt{
+    color: aliceblue;
+}
+.Us{
+    position: relative;
+    right: 1100px;
+    top: -40px;
+}
+.Us>span{
+    color: aliceblue;
+    position: relative;
+    top: -60px;
+    left: -140px;
+}
+.Communicate{
+    position: relative;
+    margin-left: 10px;
+}

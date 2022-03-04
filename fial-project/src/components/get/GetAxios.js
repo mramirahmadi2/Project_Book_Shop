@@ -3,10 +3,10 @@ import React from "react";
 
 const baseURL = "http://localhost:3002/category";
 
-export default function Get() {
+export default function GetUrl(props) {
   const [post, setPost] = React.useState(null);
 
-  React.useEffect(() => {
+ React.useEffect(() => {
     axios.get(baseURL).then(res =>{
         console.log(res);
         setPost(res.data)
@@ -19,13 +19,7 @@ export default function Get() {
 
   if (!post) return null;
 
-  return (
-    <div>
-      <ul>
-        {
-          post.map(post => <li key={post.id}>{post.title} </li>)
-        }
-      </ul>
-    </div>
-  );
+  return  <>
+           
+   </>;
 }

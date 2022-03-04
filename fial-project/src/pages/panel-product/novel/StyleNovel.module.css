@@ -1,0 +1,14 @@
+.LineMe{
+    position: relative;
+    top: 50px;
+    left: 400px;
+    right: 350px;
+    overflow-x: hidden;
+    
+}
+.title{
+    position: relative;
+    top: 70px;
+    right: 90px;
+    font-size: 30px;
+}

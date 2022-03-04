@@ -1,0 +1,26 @@
+.basic{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    list-style: none;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.img{
+  width: 300px;
+  height: 200px;
+}
+.basic:hover{
+  width: 310px;
+  height: 310px;
+  box-shadow: 8px 8px 16px rgb(126, 121, 121);
+  cursor: pointer;
+}
+.img:hover{
+  width: 310px;
+}
+.dblock{
+   display: inline;
+}

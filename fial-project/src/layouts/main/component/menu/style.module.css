@@ -8,6 +8,7 @@
   height: 100%;
   overflow: auto;
   font-size: 15px;
+  overflow-x: hidden;
 }
 
 .menu> li a {
@@ -18,30 +19,35 @@
 }
 
 .menu>li a.active {
-  background-color: #d9db64;
+ 
+  margin-top: 100px;
+  width: 100%;
+  
+}
+.active:hover{
+  background-color: #555;
   width: 100%;
   color: white;
 }
 
-.menu>li a:hover:not(.active) {
+.Hover:hover:not(.active) {
   background-color: #555;
   width: 100%;
   color: white;
 }
 .PanleModirit{
-  position: absolute;
-  
-  top: 600px;
-  right: 60px;
+  margin-top: 250px;
+  list-style: none;
+  margin-right: 40px;
+ 
  
 }
-.PanleModirit:hover{
-  top: 590px;
-  right: 65px;
-  background-color: rgba(247, 251, 255, 0.658);
-  width: 170px;
-  height: 30px;
-  border-radius: 15px;
-  box-shadow: 8px 8px 16px rgb(82, 80, 80);
+.PanleModirit:hover:not(.Hover){
+  margin-top:240px ;
+  background-color: rgba(249, 252, 255, 0.658) ;
+  width: 190px ;
+  height: 40px ;
+  border-radius: 15px ;
+  box-shadow: 8px 8px 16px rgb(82, 80, 80) ;
 }
 
