@@ -11,20 +11,17 @@
   overflow-x: hidden;
 }
 
-.menu> li a {
+.Hover {
   display: block;
   color: #000;
   padding: 8px 16px;
   text-decoration: none;
 }
-
-.menu>li a.active {
- 
+.active {
   margin-top: 100px;
   width: 100%;
-  
 }
-.active:hover{
+.active:hover {
   background-color: #555;
   width: 100%;
   color: white;
@@ -35,19 +32,28 @@
   width: 100%;
   color: white;
 }
-.PanleModirit{
-  margin-top: 250px;
+.PanleModirit {
+  margin-top: 210px;
   list-style: none;
   margin-right: 40px;
- 
+}
+.PanleModirit:hover:not(.Hover) {
+  margin-top: 200px;
+  background-color: rgba(249, 252, 255, 0.658);
+  width: 190px;
+  height: 30px;
+  border-radius: 15px;
+  box-shadow: 8px 8px 16px rgb(82, 80, 80);
+  text-align: center;
+}
+.loginLogo{
+  display: flex;
+  justify-content: center;
+  
  
 }
-.PanleModirit:hover:not(.Hover){
-  margin-top:240px ;
-  background-color: rgba(249, 252, 255, 0.658) ;
-  width: 190px ;
-  height: 40px ;
-  border-radius: 15px ;
-  box-shadow: 8px 8px 16px rgb(82, 80, 80) ;
+.Logo{
+  position: relative;
+  right: 4px;
+  top: 4px;
 }
-

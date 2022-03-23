@@ -2,7 +2,7 @@ import React from 'react';
 import StyleMenu from './style.module.css';
 import Header from 'layouts/main/component/Header/Header.component';
 import Login from '../../../../assets/icons/login/index';
-
+import { Link } from 'react-router-dom';
 
 function Menu() {
 
@@ -14,17 +14,17 @@ function Menu() {
         <div>
             <Header />
             <ul className={StyleMenu.menu}>
-                <li ><a className={StyleMenu.active} href="/">خانه</a></li>
-                <li  ><a className={StyleMenu.Hover} href="/Novel">رمان</a>
+                <li className={StyleMenu.active}> <Link className={StyleMenu.Hover} to="/">خانه</Link></li>
+                <li ><Link className={StyleMenu.Hover} to="/Novel">رمان</Link>
                 </li>
-                <li><a className={StyleMenu.Hover} href="/Academic">آموزشی و کنکوری </a></li>
-                <li><a className={StyleMenu.Hover} href="/Entertain"> سرگرمی </a></li>
+                <li><Link className={StyleMenu.Hover} to="/Academic">آموزشی و کنکوری </Link></li>
+                <li><Link className={StyleMenu.Hover} to="/Entertain"> سرگرمی </Link></li>
 
-                <li><a className={StyleMenu.Hover} href="/Education">دانشگاهی</a></li>
+                <li><Link className={StyleMenu.Hover} to="/Education">دانشگاهی</Link></li>
 
-                <li><a className={StyleMenu.Hover} href="/">پرفروش ترین کتاب ها</a></li>
+                <li><Link className={StyleMenu.Hover} to="/">پرفروش ترین کتاب ها</Link></li>
 
-                <li className={StyleMenu.PanleModirit}><a href='/login'>  ورود به پنل مدیریت <Login className={StyleMenu.loginLogo} /></a></li>
+                <li className={StyleMenu.PanleModirit}><Link className={StyleMenu.loginLogo}  to='/login'>  ورود به پنل مدیریت <div className={StyleMenu.Logo}> <Login  /></div> </Link></li>
 
             </ul>
             

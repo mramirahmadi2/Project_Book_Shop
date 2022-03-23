@@ -5,7 +5,7 @@ import StyleCard from '../StyleCard.module.css';
 import NovelImg1 from '../../../assets/img/products/Novel/unsplash_Ub8wXvCZqq8.png';
 function CardNovel() {
 
-    const baseURL = "http://localhost:3002/category";
+    const baseURL = "http://localhost:3002/products";
     const [post, setPost] = React.useState(null);
 
     React.useEffect(() => {
@@ -20,6 +20,7 @@ function CardNovel() {
     }, []);
 
     if (!post) return null;
+    let i = 0;
 
 
 
@@ -39,20 +40,34 @@ function CardNovel() {
 
             }}>
                 {
-                    post.map((post) =>
+                    post.map((post) =>{
                         
-                             <li key={post.id} className={StyleCard.basic}>
-                                <img src={NovelImg1} alt='novel-img' className={StyleCard.img} />
-                                <h3>{post.title}</h3>
-                                <p>قیمت:{post.price}تومان</p>
-                            </li>
-                            
                         
+                            if (post.group === "Novel" ) {
+
+                                i ++;
+
+                                return <li key={post.id} className={StyleCard.basic}>
+                                    <img className={StyleCard.img} src={`http://localhost:3002/files/${post.image}`} alt={post.group} />
+
+                                    <h3>{post.title}</h3>
+                                    
+                                    <p>نویسنده:{post.writer}</p>
+                                    <p>قیمت:{post.price}تومان</p>
+                                   
+                                </li>
+
+                            }
+                        
+                          
+                            console.log(i);
+                        
+                    }
 
 
 
 
-
+                     
                    )
                 }
             </Box>
