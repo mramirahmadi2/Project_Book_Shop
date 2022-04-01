@@ -17,10 +17,10 @@ function Menu() {
                 <li className={StyleMenu.active}> <Link className={StyleMenu.Hover} to="/">خانه</Link></li>
                 <li ><Link className={StyleMenu.Hover} to="/Novel">رمان</Link>
                 </li>
-                <li><Link className={StyleMenu.Hover} to="/Academic">آموزشی و کنکوری </Link></li>
+                <li><Link className={StyleMenu.Hover} to="/Education">آموزشی و کنکوری </Link></li>
                 <li><Link className={StyleMenu.Hover} to="/Entertain"> سرگرمی </Link></li>
 
-                <li><Link className={StyleMenu.Hover} to="/Education">دانشگاهی</Link></li>
+                <li><Link className={StyleMenu.Hover} to="/Academic">دانشگاهی</Link></li>
 
                 <li><Link className={StyleMenu.Hover} to="/">پرفروش ترین کتاب ها</Link></li>
 
