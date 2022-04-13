@@ -16,7 +16,7 @@ import ButtonPlus from 'components/button/Plus/ButtonPlus';
 import InputNumbers from 'components/button/inputNumber/InputNumber';
 import { useDispatch, useSelector } from 'react-redux'
 
-import { increment, decrement} from '../../redux/Main.reducer';
+import { increment, decrement } from '../../redux/CounterSlice';
 
 
 
@@ -24,10 +24,10 @@ function HomePage() {
 
   const dispatch = useDispatch();
 
-  let value = useSelector(state =>  state.counter.count);
+  let value = useSelector(state => state.counter.count);
   const [Get, setGet] = React.useState(null);
 
- console.log('ok');
+  console.log('ok');
 
 
 
@@ -49,15 +49,15 @@ function HomePage() {
   // Novel filter
   let counterNovel = 0;
   const Novel = Get.map((Get) => {
-    
+
     if (Get.group === 'Novel' && counterNovel <= 2) {
       console.log('ok');
       counterNovel++;
       return (
         <div>
-
+        <Link to={"/ProductDetail/" + Get.id} >
           <Card key={Get.id}>
-            <Link to={"/ProductDetail/" + Get.id} >
+           
 
               <img className={stylehome.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.title} />
 
@@ -65,15 +65,20 @@ function HomePage() {
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-            </Link>
-            <Box sx={{
-              display: 'flex'
-            }}>
-              
-            </Box>
-
-
+              { Get.number == 0 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>این کتاب به اتمام رسیده است</p>
+              }
+              {  Get.number <= 2 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+              }
           </Card>
+          </Link>
         </div>
       )
     }
@@ -86,26 +91,35 @@ function HomePage() {
       counterEducational++;
       return (
         <div>
+          <Link to={"/ProductDetail/" + Get.id} >
+            <Card key={Get.id}>
 
-          <Card key={Get.id}>
-            <Link to={"/ProductDetail/" + Get.id} >
               <img className={stylehome.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.group} />
 
               <h3>{Get.title}</h3>
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-            </Link>
-            <Box sx={{
-              display: 'flex'
-            }}>
-              <ButtonPlus onClick={() => dispatch(increment())} />
-              <InputNumbers values={value} />
-              <MinesButtons onClick={() => dispatch(decrement())} />
-            </Box>
+              { Get.number == 0 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>این کتاب به اتمام رسیده است</p>
+              }
+              {  Get.number <= 2 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+              }
+              <Box sx={{
+                display: 'flex'
+              }}>
 
-          </Card>
+              </Box>
 
+            </Card>
+          </Link>
         </div>
       )
     }
@@ -118,25 +132,35 @@ function HomePage() {
       counterEntertainment++;
       return (
         <div>
-          <Card key={Get.id}>
-            <Link to={"/ProductDetail/" + Get.id} >
+          <Link to={"/ProductDetail/" + Get.id} >
+            <Card key={Get.id}>
+
               <img className={stylehome.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.group} />
 
               <h3>{Get.title}</h3>
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-            </Link>
-            <Box sx={{
-              display: 'flex'
-            }}>
-              <ButtonPlus onClick={() => console.log('id:', Get.id)} />
-              <InputNumbers />
-              <MinesButtons />
-            </Box>
+              { Get.number == 0 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>این کتاب به اتمام رسیده است</p>
+              }
+              {  Get.number <= 2 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+              }
+              <Box sx={{
+                display: 'flex'
+              }}>
 
-          </Card>
+              </Box>
 
+            </Card>
+          </Link>
         </div>
       )
     }
@@ -149,25 +173,35 @@ function HomePage() {
       counterAcademicBook++;
       return (
         <div>
-          <Card key={Get.id}>
-            <Link to={"/ProductDetail/" + Get.id} >
+          <Link to={"/ProductDetail/" + Get.id} >
+            <Card key={Get.id}>
+
               <img className={stylehome.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.group} />
 
               <h3>{Get.title}</h3>
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-            </Link>
-            <Box sx={{
-              display: 'flex'
-            }}>
-              <ButtonPlus onClick={() => console.log('id:', Get.id)} />
-              <InputNumbers />
-              <MinesButtons />
 
-            </Box>
+              <Box sx={{
+                display: 'flex'
+              }}>
+              { Get.number == 0 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>این کتاب به اتمام رسیده است</p>
+              }
+              {  Get.number <= 2 &&
+                <p style={{
+                  color:'red',
+                  fontSize:'10px'
+                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+              }
+              </Box>
 
-          </Card>
+            </Card>
+          </Link>
         </div>
       )
     }

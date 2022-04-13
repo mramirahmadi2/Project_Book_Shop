@@ -9,7 +9,7 @@ import getProducts from 'components/api/GetAxios';
 import Card from '../../../components/card/Card.component';
 import Style from '../styleGlobaleProduct.module.css'
 
-import MinesButtons from 'components/button/Mines/ButtonMines';
+
 import { Link } from 'react-router-dom';
 
 function Academic() {
@@ -37,23 +37,37 @@ function Academic() {
 
             return (
                 <div>
+                <Link to={"/ProductDetail/" + Get.id} >
                     <Card key={Get.id}>
-                    <Link to={"/ProductDetail/" + Get.id} >
+                   
                         <img className={Style.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.title} />
 
                         <h3>{Get.title}</h3>
 
                         <p>نویسنده:{Get.writer}</p>
                         <p>قیمت:{Get.price}تومان</p>
+                        { Get.number == 0 &&
+                            <p style={{
+                              color:'red',
+                              fontSize:'10px'
+                            }}>این کتاب به اتمام رسیده است</p>
+                          }
+                          {  Get.number <= 2 &&
+                            <p style={{
+                              color:'red',
+                              fontSize:'10px'
+                            }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+                          }
                         <Box sx={{
                             display: 'flex'
                           }}>
                            
-                            <MinesButtons />
+                            
                           </Box>
-                          </Link>
+                         
                           
                     </Card>
+                    </Link>
                 </div>
             )
         }

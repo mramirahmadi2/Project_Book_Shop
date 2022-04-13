@@ -2,9 +2,11 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
-
+import Rtl from 'RTL/Rtl';
 export default function FreeSolo() {
   return (
+    <div>
+    <Rtl>
     <Stack spacing={2} sx={{ width: 500 }}>
      
       <Autocomplete
@@ -24,6 +26,8 @@ export default function FreeSolo() {
         )}
       />
     </Stack>
+    </Rtl>
+    </div>
   );
 }
 

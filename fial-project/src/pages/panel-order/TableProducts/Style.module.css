@@ -2,3 +2,24 @@
     height: 50px;
     width: 50px;
 }
+.moduleActive{
+    position: absolute;
+    width: 450px;
+    height: 700px;
+    background-color: aqua;
+    margin-right: 35%;
+   
+    z-index: 5000;
+    border-radius: 15px;
+}
+.moduleNotActive{
+    display: none;
+}
+.Buler{
+
+    position: fixed;
+    background-color: rgba(50, 46, 46, 0.45);
+    z-index: 4999;
+    width: 100%;
+    height: 100%;
+}

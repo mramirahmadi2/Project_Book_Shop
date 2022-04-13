@@ -1,0 +1,13 @@
+.Bank{
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+.FormData{
+    position: absolute;
+  top: 20%;
+  left: 35%;
+  text-align: center;
+}

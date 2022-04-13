@@ -39,7 +39,7 @@ body {
 }
 .count-form {
   width: 450px;
-  height: 300px;
+  height: 350px;
   background-color: rgba(242, 226, 248, 0.712);
   position: absolute;
   top: 20%;
@@ -53,7 +53,7 @@ body {
 }
 .back-home{
   position:absolute;
-  top: 260px;
-  left: 50px;
+  top: 310px;
+  left: 30px;
   
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -8,11 +8,14 @@ import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp
 import './Table.css';
 import Box from '@mui/material/Box';
 import Style from './Style.module.css';
-
+import Modal from './modal/modal';
+import { Link } from 'react-router-dom';
 
 function TableProduct() {
 
-   
+
+    const [isOpen, setIsOpen] = useState(false);
+
     const baseURL = "http://localhost:3002/products";
     const [post, setPost] = React.useState(null);
 
@@ -30,6 +33,15 @@ function TableProduct() {
 
     if (!post) return null;
 
+    const handelDelete = async (id) => {
+
+        await axios.delete(`http://localhost:3002/products/${id}`);
+        await axios.delete(`http://localhost:3002/category/${id}`);
+        window.location.reload();
+
+    }
+   
+
 
 
     let tbData = post.map((post) => {
@@ -39,22 +51,22 @@ function TableProduct() {
                     display: 'flex',
 
                 }}> <span > <img className={Style.imageTitle} src={`http://localhost:3002/files/${post.image}`} alt={post.group} /></span> <Box sx={{
-                           mt:2,
-                           mr:2
+                    mt: 2,
+                    mr: 2
                 }}> <span> {post.title}</span></Box></Box> </td>
                 <td>{post.number}</td>
 
                 <td>
-                    <Button variant="outlined" sx={{
+                    <Button variant="outlined" color="error" onClick={() => handelDelete(post.id)} sx={{
                         mr: 5
                     }} startIcon={<DeleteIcon sx={{
                         ml: 2,
                     }} />}>
                         حذف
                     </Button>
-                    <Button variant="outlined" sx={{
+                     <Button variant="outlined" sx={{
                         mr: 10
-                    }} startIcon={<ModeEditIcon sx={{
+                    }} color='inherit' startIcon={<ModeEditIcon sx={{
                         ml: 2,
 
                     }} />}>
@@ -66,19 +78,23 @@ function TableProduct() {
         )
     })
     return (
-        <div>
+        <div  >
+
             <PanelManage />
             <div>
-                <Button variant="outlined" sx={{
-                    mr: 100,
-                    mt: 20
-                }} startIcon={<AddCircleOutlineSharpIcon sx={{
-                    ml: 2,
+                <Button
+                    onClick={() => setIsOpen(true)} variant="outlined" sx={{
+                        mr: 100,
+                        mt: 20
+                    }} startIcon={<AddCircleOutlineSharpIcon sx={{
+                        ml: 2,
 
-                }} />}>
+                    }} />}>
                     اظافه کردن
                 </Button>
             </div>
+            {isOpen && <Modal setIsOpen={setIsOpen} />}
+
             <Box sx={{
                 mt: -20,
                 mr: 25,

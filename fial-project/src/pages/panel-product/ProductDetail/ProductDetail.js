@@ -13,19 +13,15 @@ import InputNumbers from 'components/button/inputNumber/InputNumber';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 
-import { increment, decrement } from '../../../redux/Main.reducer';
-import PostOrder from 'components/api/PostOreder';
+import { incrementAction, decrementAction, Zero } from '../../../redux/CounterSlice';
+
 
 function ProductDetail() {
     const dispatch = useDispatch();
     let value = useSelector(state => state.counter.value);
-    const [state, setState] = useState({
-        name: "",
-        img: "",
-        writer: "",
-        price: "",
-        category: ""
-    });
+
+
+
 
 
 
@@ -47,53 +43,93 @@ function ProductDetail() {
     if (!Get) return null;
 
     let idProduct = { id }
-    const order = "order";
-    const Orders = Get.map( (Get)=>
-    {   if(Get.id == idProduct.id){
-           return(
-               {
-               "name": Get.title,
-               "img": Get.image,
-               "id":Get.id,
-               "writer":Get.writer,
-               "price": Get.price,
-               "Order":order 
-              
-           }
-           )
-       }}
-   );
+    let title = '';
+    let group = '';
+    let writer = '';
+    let price = '';
+    let number = '';
+    let image = '';
+
+    Get.map((Get) => {
+        if (Get.id == idProduct.id) {
+
+            title = Get.title
+            group = Get.group
+            writer = Get.writer
+            price = Get.price
+            number = Get.number
+            image = Get.image
 
 
-    // const handleChange = (e) => {
-    //     const value = e.target.value;
-    //     setState({
-    //         ...state,
-    //         [e.target.name]: value
-    //     });
-    // };
-    const handleClick = (e) => {
+        }
+    });
 
-        e.preventDefault();
-        const orderData = Orders;
-        // const orderData =` http://localhost:3000/ProductDetail/${idProduct.id}`
-        // const userData = {
-        //     name: "",
-        //     img: "",
-        //     writer: "",
-        //     price: "",
-        //     category: "",
-        //     email: data.email,
-        //     password: data.password
-        // };
-        axios.post(PostOrder, orderData).then((response) => {
-            console.log(response.status);
-            console.log(response.data.token);
-        }).catch(err => {
-            console.log(err);
 
-        });
-        console.log('ok');
+
+
+
+    let orderId = 0
+
+    const handleClick = () => {
+
+
+        if (value > number) {
+            alert(`تعداد سفارشات شما بیشتر از موجدی این کتاب در انبار است`)
+        }else if(number== 0){
+            alert(`این کالا به اتمام رسیده است`)
+        }else if(value == 0){
+           
+                const order = {
+                    title,
+                    group,
+                    writer,
+                    price,
+                    number,
+                    image
+
+                };
+
+                axios.post(`http://localhost:3002/basket`, order).then((response) => {
+                    console.log(response.status);
+                    console.log(response.data.token);
+                }).catch(err => {
+                    console.log(err);
+
+                });
+                console.log('ok');
+           
+            alert(`تعداد 1 کتاب ${title} در سبد خرید شما قرار گرفت`)
+
+
+            dispatch(Zero())
+        } else {
+            for (let i = 1; i <= value; i++) {
+                orderId = orderId + 1
+                const order = {
+                    title,
+                    group,
+                    writer,
+                    price,
+                    number,
+                    image
+
+                };
+
+                axios.post(`http://localhost:3002/basket`, order).then((response) => {
+                    console.log(response.status);
+                    console.log(response.data.token);
+                }).catch(err => {
+                    console.log(err);
+
+                });
+                console.log('ok');
+            };
+            alert(`تعداد ${value} کتاب ${title} در سبد خرید شما قرار گرفت`)
+
+
+            dispatch(Zero())
+        }
+
     };
 
 
@@ -112,7 +148,7 @@ function ProductDetail() {
 
                                 return (
                                     <Box>
-                                        <h1 >کتاب {Get.title}</h1>
+                                        <h1 > {Get.title}</h1>
                                         <Box sx={{
                                             display: 'flex',
                                         }}>
@@ -127,19 +163,39 @@ function ProductDetail() {
                                                     mt: 3,
                                                     ml: 4,
                                                 }}>
-                                                    <span>نویسنده: {Get.writer}</span>
-                                                    <span>قیمت: {Get.price}تومان</span>
+                                                    <span >نویسده:{Get.writer}</span>
+                                                    <span >{Get.price}تومان</span>
+                                                   
+
+                                                  
+                                                    
+                                                    
                                                 </Box>
                                             </Box>
                                         </Box>
+                                        { Get.number == 0 &&
+                                            <p style={{
+                                              color:'red',
+                                              fontSize:'10px',
+                                              
+                                            }}>این کتاب به اتمام رسیده است</p>
+                                          }
+                                          {  Get.number <= 2 &&
+                                            <p style={{
+                                              color:'red',
+                                              fontSize:'10px',
+                                              
+                                            }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+                                          }
                                         <Box sx={{
                                             display: 'flex',
                                             width: 15,
                                             height: 40
                                         }}>
-                                            <ButtonPlus onClick={() => dispatch(increment())} />
+                                       
+                                            <ButtonPlus onClick={() => dispatch(incrementAction())} />
                                             <InputNumbers values={value} />
-                                            <MinesButtons onClick={() => dispatch(decrement())} />
+                                            <MinesButtons onClick={() => dispatch(decrementAction())} />
                                         </Box>
                                         <Button variant="contained" color="primary" onClick={handleClick}>
                                             اضافه کردن به سبد خرید

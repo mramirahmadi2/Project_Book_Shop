@@ -39,22 +39,36 @@ function Novel() {
 
             return (
                 <div>
-                    <Card key={Get.id}>
                     <Link to={"/ProductDetail/" + Get.id} >
-                        <img className={Style.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.title} />
+                        <Card key={Get.id}>
 
-                        <h3>{Get.title}</h3>
+                            <img className={Style.img} src={`http://localhost:3002/files/${Get.image}`} alt={Get.title} />
 
-                        <p>نویسنده:{Get.writer}</p>
-                        <p>قیمت:{Get.price}تومان</p>
-                        <Box sx={{
-                            display: 'flex'
-                          }}>
-                            
-                            <MinesButtons />
-                          </Box>
-                        </Link>
-                    </Card>
+                            <h3>{Get.title}</h3>
+
+                            <p>نویسنده:{Get.writer}</p>
+                            <p>قیمت:{Get.price}تومان</p>
+                            { Get.number == 0 &&
+                                <p style={{
+                                  color:'red',
+                                  fontSize:'10px'
+                                }}>این کتاب به اتمام رسیده است</p>
+                              }
+                              {  Get.number <= 2 &&
+                                <p style={{
+                                  color:'red',
+                                  fontSize:'10px'
+                                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
+                              }
+                            <Box sx={{
+                                display: 'flex'
+                            }}>
+
+
+                            </Box>
+
+                        </Card>
+                    </Link>
                 </div>
             )
         }
@@ -81,11 +95,11 @@ function Novel() {
                 </Box>
             </div>
             <Pagination dir='ltr' count={10} variant="outlined" color="primary" sx={{
-                mt:10,
-                ml:30,
-                mb:10
+                mt: 10,
+                ml: 30,
+                mb: 10
             }} />
-            <Footer/>
+            <Footer />
         </div>
     );
 }

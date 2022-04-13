@@ -12,21 +12,21 @@ import store from 'redux/Store';
 function App() {
 
 
-  
+
 
 
 
   return (
     <>
 
+      <div dir="rtl">
+        <Provider store={store}>
 
-      <Provider store={store}>
+          <AppRoute />
 
-        <AppRoute />
+        </Provider>
 
-      </Provider>
-
-
+      </div>
     </>
   );
 }

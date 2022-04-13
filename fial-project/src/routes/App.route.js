@@ -18,11 +18,12 @@ import TableProduct from 'pages/panel-order/TableProducts/TableProduct.component
 import ProductApproval from 'pages/panel-order/ProductApproval/ProductApproval.component';
 import AwaitingApproval from 'pages/panel-order/AwaitingApproval/AwaitingApproval.component';
 import ProductDetail from 'pages/panel-product/ProductDetail/ProductDetail';
-
-
-
-
-
+import Checkout from 'pages/checkout/checkout.component';
+import Bank from 'pages/peyment/Bank/Bank';
+import PaymentResultSuccess from 'pages/payment-result-success/PaymentResultSuccess.component';
+import PaymentResultFail from 'pages/payment-result-fail/paymentResultFail.component';
+import Edit from 'pages/panel-order/TableProducts/Edite/Edit';
+import DetailOrder from 'pages/panel-order/AwaitingApproval/detailOrder/DetailOrder';
 
 
 
@@ -44,7 +45,12 @@ const AppRoute = () => {
         <Route path='/ProductApproval' element={<ProductApproval />} />
         <Route path='/AwaitingApproval' element={<AwaitingApproval />} />
         <Route path='/ProductDetail/:id' element={<ProductDetail />} />
-       
+        <Route path='/Checkout/:sum' element={<Checkout />} />
+        <Route path='/Checkout/Bank/:userName' element={<Bank />} />
+        <Route path='/PaymentResultSuccess/:userName' element={<PaymentResultSuccess />} />
+        <Route path='/PaymentResultFail/:userName' element={<PaymentResultFail />} />
+        <Route path='/Edit/:id' element={<Edit />} />
+        <Route path='/detailOrder/:id' element={<DetailOrder />} />
        
       </Routes>
 
