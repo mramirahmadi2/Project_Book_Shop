@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = { value: 0 }
+const initialState = { value: 0 , basket: 0 }
 
 function increment (state) {
   state.value += 1
@@ -15,6 +15,12 @@ function decrement (state) {
 function zero (state){
   state.value = 0;
 }
+function BasketSum (state) {
+  state.basket += 1
+}
+function BasketDelete (state) {
+  state.basket -= 1
+}
 
 
 const counterSlice = createSlice({
@@ -23,7 +29,9 @@ const counterSlice = createSlice({
   reducers: {
     increment,
     decrement,
-    zero
+    zero,
+    BasketSum,
+    BasketDelete
   }
 })
 

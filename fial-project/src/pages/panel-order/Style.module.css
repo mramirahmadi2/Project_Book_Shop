@@ -1,16 +1,21 @@
 .button0{
     position: relative;
     top: 150px;
-    right: 550px ;
+    right: 450px ;
     left: 50px;
 }
 .button1{
     position: relative;
     top: 150px;
-    right: 600px ;
+    right: 550px ;
 }
 .button2{
     position: relative;
     top: 150px;
-    right: 650px ;
+    right: 600px ;
+}
+.button3{
+    position: relative;
+    top: 150px;
+    right: 500px ;
 }

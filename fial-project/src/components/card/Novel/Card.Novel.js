@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import Box from '@mui/material/Box';
 import StyleCard from '../StyleCard.module.css';
-import NovelImg1 from '../../../assets/img/products/Novel/unsplash_Ub8wXvCZqq8.png';
+import ReactPaginate from "react-paginate";
+
+const PER_PAGE = 7;
 function CardNovel() {
 
+    const [currentPage, setCurrentPage] = useState(0);
     const baseURL = "http://localhost:3002/products";
     const [post, setPost] = React.useState(null);
 
@@ -21,9 +24,9 @@ function CardNovel() {
 
     if (!post) return null;
     let i = 0;
+    const offset = currentPage * PER_PAGE;
 
-
-
+    const pageCount = Math.ceil(post.length / PER_PAGE);
 
 
     return (
@@ -40,7 +43,7 @@ function CardNovel() {
 
             }}>
                 {
-                    post.map((post) =>{
+                    post.slice(offset, offset + PER_PAGE).map((post) =>{
                         
                         
                             if (post.group === "Novel" ) {

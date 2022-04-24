@@ -49,7 +49,8 @@ function ProductDetail() {
     let price = '';
     let number = '';
     let image = '';
-
+    let counter = 0;
+    
     Get.map((Get) => {
         if (Get.id == idProduct.id) {
 
@@ -59,6 +60,7 @@ function ProductDetail() {
             price = Get.price
             number = Get.number
             image = Get.image
+        
 
 
         }
@@ -79,31 +81,14 @@ function ProductDetail() {
             alert(`این کالا به اتمام رسیده است`)
         }else if(value == 0){
            
-                const order = {
-                    title,
-                    group,
-                    writer,
-                    price,
-                    number,
-                    image
-
-                };
-
-                axios.post(`http://localhost:3002/basket`, order).then((response) => {
-                    console.log(response.status);
-                    console.log(response.data.token);
-                }).catch(err => {
-                    console.log(err);
-
-                });
-                console.log('ok');
+               
            
-            alert(`تعداد 1 کتاب ${title} در سبد خرید شما قرار گرفت`)
+            alert(`مقداری مشخص نشده است`)
 
 
-            dispatch(Zero())
+         
         } else {
-            for (let i = 1; i <= value; i++) {
+            
                 orderId = orderId + 1
                 const order = {
                     title,
@@ -111,7 +96,8 @@ function ProductDetail() {
                     writer,
                     price,
                     number,
-                    image
+                    image,
+                    counter : value
 
                 };
 
@@ -123,7 +109,7 @@ function ProductDetail() {
 
                 });
                 console.log('ok');
-            };
+            
             alert(`تعداد ${value} کتاب ${title} در سبد خرید شما قرار گرفت`)
 
 
@@ -173,20 +159,27 @@ function ProductDetail() {
                                                 </Box>
                                             </Box>
                                         </Box>
-                                        { Get.number == 0 &&
+                                        { Get.number == 0 && 
                                             <p style={{
-                                              color:'red',
-                                              fontSize:'10px',
-                                              
-                                            }}>این کتاب به اتمام رسیده است</p>
-                                          }
-                                          {  Get.number <= 2 &&
+                                                color:'red',
+                                                fontSize:'10px'
+                                              }}>این کتاب به اتمام رسیده است</p>
+                                        
+                                        }
+                                        { Get.number == 1 && 
                                             <p style={{
-                                              color:'red',
-                                              fontSize:'10px',
-                                              
-                                            }}>از این کتاب تنها {Get.number} عدد مانده است</p>
-                                          }
+                                                color:'red',
+                                                fontSize:'10px'
+                                              }}>تنها 1 عدد از این کتاب موجود است</p>
+                                        
+                                        }
+                                        { Get.number == 2 && 
+                                            <p style={{
+                                                color:'red',
+                                                fontSize:'10px'
+                                              }}>تنها 2 عدد از این کتاب موجود است</p>
+                                        
+                                        }
                                         <Box sx={{
                                             display: 'flex',
                                             width: 15,

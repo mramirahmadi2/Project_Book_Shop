@@ -65,18 +65,27 @@ function HomePage() {
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-              { Get.number == 0 &&
+              { Get.number == 0 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>این کتاب به اتمام رسیده است</p>
-              }
-              {  Get.number <= 2 &&
+                    color:'red',
+                    fontSize:'10px'
+                  }}>این کتاب به اتمام رسیده است</p>
+            
+            }
+            { Get.number == 1 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
-              }
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 1 عدد از این کتاب موجود است</p>
+            
+            }
+            { Get.number == 2 && 
+                <p style={{
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 2 عدد از این کتاب موجود است</p>
+            
+            }
           </Card>
           </Link>
         </div>
@@ -100,23 +109,27 @@ function HomePage() {
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-              { Get.number == 0 &&
+              { Get.number == 0 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>این کتاب به اتمام رسیده است</p>
-              }
-              {  Get.number <= 2 &&
+                    color:'red',
+                    fontSize:'10px'
+                  }}>این کتاب به اتمام رسیده است</p>
+            
+            }
+            { Get.number == 1 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
-              }
-              <Box sx={{
-                display: 'flex'
-              }}>
-
-              </Box>
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 1 عدد از این کتاب موجود است</p>
+            
+            }
+            { Get.number == 2 && 
+                <p style={{
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 2 عدد از این کتاب موجود است</p>
+            
+            }
 
             </Card>
           </Link>
@@ -141,23 +154,29 @@ function HomePage() {
 
               <p>نویسنده:{Get.writer}</p>
               <p>قیمت:{Get.price}تومان</p>
-              { Get.number == 0 &&
+              { Get.number == 0 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>این کتاب به اتمام رسیده است</p>
-              }
-              {  Get.number <= 2 &&
+                    color:'red',
+                    fontSize:'10px'
+                  }}>این کتاب به اتمام رسیده است</p>
+            
+            }
+            { Get.number == 1 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
-              }
-              <Box sx={{
-                display: 'flex'
-              }}>
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 1 عدد از این کتاب موجود است</p>
+            
+            }
+            { Get.number == 2 && 
+                <p style={{
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 2 عدد از این کتاب موجود است</p>
+            
+            }
 
-              </Box>
+            
 
             </Card>
           </Link>
@@ -186,18 +205,27 @@ function HomePage() {
               <Box sx={{
                 display: 'flex'
               }}>
-              { Get.number == 0 &&
+              { Get.number == 0 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>این کتاب به اتمام رسیده است</p>
-              }
-              {  Get.number <= 2 &&
+                    color:'red',
+                    fontSize:'10px'
+                  }}>این کتاب به اتمام رسیده است</p>
+            
+            }
+            { Get.number == 1 && 
                 <p style={{
-                  color:'red',
-                  fontSize:'10px'
-                }}>از این کتاب تنها {Get.number} عدد مانده است</p>
-              }
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 1 عدد از این کتاب موجود است</p>
+            
+            }
+            { Get.number == 2 && 
+                <p style={{
+                    color:'red',
+                    fontSize:'10px'
+                  }}>تنها 2 عدد از این کتاب موجود است</p>
+            
+            }
               </Box>
 
             </Card>
@@ -217,7 +245,7 @@ function HomePage() {
 
 
         <div className={stylehome.novels}>
-          <Box sx={{ mr: 10, fontSize: 25 }}><span >رمان</span></Box>
+          <Box sx={{ mr: 10, fontSize: 25 }}> <Link to="/Novel"> <span >رمان</span></Link></Box>
 
           <Box sx={{
             display: 'flex',
@@ -235,7 +263,7 @@ function HomePage() {
 
         </div>
         <div className={stylehome.novels}>
-          <Box sx={{ mr: 10, fontSize: 25 }}><span >کنکوری</span></Box>
+          <Box sx={{ mr: 10, fontSize: 25 }}> <Link to="/Education"> <span >آموزشی و کنکوری</span></Link></Box>
           <div >
             <Box sx={{
               display: 'flex',
@@ -253,7 +281,7 @@ function HomePage() {
           </div>
         </div>
         <div className={stylehome.novels}>
-          <Box sx={{ mr: 10, fontSize: 25 }}><span >سرگرمی</span></Box>
+          <Box sx={{ mr: 10, fontSize: 25 }}><Link to="/Entertain"><span >سرگرمی</span></Link></Box>
           <div >
             <Box sx={{
               display: 'flex',
@@ -271,7 +299,7 @@ function HomePage() {
           </div>
         </div>
         <div className={stylehome.novels}>
-          <Box sx={{ mr: 10, fontSize: 25 }}><span >کتب دانشگاهی</span></Box>
+          <Box sx={{ mr: 10, fontSize: 25 }}><Link to="/Academic"><span >کتب دانشگاهی</span></Link></Box>
           <div >
             <Box sx={{
               display: 'flex',
@@ -300,3 +328,29 @@ function HomePage() {
 export default HomePage;
 
 
+// <Link to="/Novel">
+// <Button variant="contained" color="secondary">
+
+//     <span className={StyleFooter.txt}> رمان</span>
+
+// </Button>
+// </Link>
+// <Link to="/Education">
+// <Button sx={{ mr: 3 }} variant="contained" color="secondary">
+
+//     <span className={StyleFooter.txt}>  آموزشی</span>
+
+// </Button></Link>
+// <Link to="/Entertain">
+// <Button sx={{ mr: 3 }} variant="contained" color="secondary">
+
+//     <span className={StyleFooter.txt}>سرگرمی</span>
+
+// </Button>    </Link>
+// <Link to="/Academic">
+
+// <Button sx={{ mr: 3 }} variant="contained" color="secondary">
+//     <span className={StyleFooter.txt}> دانشگاهی</span>
+
+// </Button>
+// </Link>

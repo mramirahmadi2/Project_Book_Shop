@@ -16,27 +16,32 @@ function Footer() {
                     <br /> بووش سریع ترین راه برای رسیدن به کتاب است.</p>
             </div>
             <Box sx={{ mt: 15, mr: 50 }}  >
-                <Button variant="contained" color="secondary">
-                    <Link to="/Novel">
-                        <span className={StyleFooter.txt}> رمان</span>
-                    </Link>
-                </Button>
+                <Link to="/Novel">
+                    <Button variant="contained" color="secondary">
 
-                <Button sx={{ mr: 3 }} variant="contained" color="secondary">
-                    <Link to="/Academic">
+                        <span className={StyleFooter.txt}> رمان</span>
+
+                    </Button>
+                </Link>
+                <Link to="/Education">
+                    <Button sx={{ mr: 3 }} variant="contained" color="secondary">
+
                         <span className={StyleFooter.txt}>  آموزشی</span>
-                    </Link>
-                </Button>
-                <Button sx={{ mr: 3 }} variant="contained" color="secondary">
-                    <Link to="/Entertain">
+
+                    </Button></Link>
+                <Link to="/Entertain">
+                    <Button sx={{ mr: 3 }} variant="contained" color="secondary">
+
                         <span className={StyleFooter.txt}>سرگرمی</span>
-                    </Link>
-                </Button>
-                <Button sx={{ mr: 3 }} variant="contained" color="secondary">
-                    <Link to="/Education">
+
+                    </Button>    </Link>
+                <Link to="/Academic">
+
+                    <Button sx={{ mr: 3 }} variant="contained" color="secondary">
                         <span className={StyleFooter.txt}> دانشگاهی</span>
-                    </Link>
-                </Button>
+
+                    </Button>
+                </Link>
 
             </Box>
             <div className={StyleFooter.Us}>

@@ -3,6 +3,7 @@ import Footer from './main/component/footer/Footer.component';
 import React from 'react'
 
 function MenuNow(props) {
+ 
   return (
     <div>
      <Menu/>

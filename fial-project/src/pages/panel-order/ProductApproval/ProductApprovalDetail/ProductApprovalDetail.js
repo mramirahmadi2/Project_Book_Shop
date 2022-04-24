@@ -9,15 +9,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import moment from 'jalali-moment';
 
-function DetailOrder() {
+function ProductApprovalDetail() {
 
-  let DateOk = new Date();
+ 
   let {id} = useParams();
   let navigation = useNavigate();
   const [Get, setGet] = React.useState(null);
   const [Basket, setBasket] = React.useState(null);
   React.useEffect(() => {
-    axios.get(`http://localhost:3002/orders`).then(res => {
+    axios.get(`http://localhost:3002/order`).then(res => {
       console.log(res);
       setGet(res.data)
     }
@@ -53,13 +53,13 @@ function DetailOrder() {
   
 
   const handelDelete = async(id) =>{
-    await axios.delete(`http://localhost:3002/orders/${id}`);
+    await axios.delete(`http://localhost:3002/order/${id}`);
     window.location.reload();
     
   }
 
   async function Delete (id){
-    await axios.delete(`http://localhost:3002/orders/${id}`);
+    await axios.delete(`http://localhost:3002/order/${id}`);
     window.location.reload();
   }
   const handelPost = (id)=>{
@@ -67,7 +67,7 @@ function DetailOrder() {
    let familyName= ""
    let addres= ""
    let number= ""
-   let dateNow = ""
+  
    let Sum = ""
 
    Get.map((Get)=>{
@@ -78,7 +78,7 @@ function DetailOrder() {
 
          addres= Get.addres,
          number= Get.number,
-         dateNow = Get.dateNow,
+        
          Sum = Get.sum
        )
      }
@@ -89,14 +89,13 @@ function DetailOrder() {
       familyName,
       addres,
       number,
-      dateNow,
-      DateOk,
+      
       Sum 
      }
 
 
    
-    axios.post(`http://localhost:3002/order`, userData).then((response) => {
+    axios.post(`http://localhost:3002/orders`, userData).then((response) => {
       console.log(response.status);
       console.log(response.data.token);
       alert(`سفارش مشتری تایید شد`);
@@ -261,4 +260,4 @@ function DetailOrder() {
   )
 }
 
-export default DetailOrder
+export default ProductApprovalDetail

@@ -29,6 +29,9 @@ function PanelManage() {
           <Link to="/TableProduct" className={Style.button0}>
             <ButtonLink link="محصولات"  />
           </Link>
+          <Link to="/EditPrice" className={Style.button3}>
+          <ButtonLink  link="موجودی و قیمت ها"  />
+        </Link>
           <Link to="/ProductApproval" className={Style.button1}>
             <ButtonLink link="تایید سفارش" />
           </Link>

@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 function AwaitingApproval() {
 
+  let DateOk = new Date()
 
   const [Get, setGet] = React.useState(null);
   React.useEffect(() => {
@@ -39,8 +40,8 @@ function AwaitingApproval() {
    let firstName= ""
    let familyName= ""
    let addres= ""
-   let phoneNumber= ""
-   let Basket = ""
+   let number= ""
+  
    let Sum = ""
 
    Get.map((Get)=>{
@@ -50,8 +51,8 @@ function AwaitingApproval() {
          familyName= Get.familyName,
 
          addres= Get.addres,
-         phoneNumber= Get.phoneNumber,
-         Basket = Get.BasketData,
+         number= Get.number,
+       
          Sum = Get.sum
        )
      }
@@ -61,8 +62,8 @@ function AwaitingApproval() {
      firstName,
       familyName,
       addres,
-      phoneNumber,
-      Basket ,
+      number,
+      DateOk,
       Sum 
      }
 
@@ -143,7 +144,7 @@ function AwaitingApproval() {
             fontFamily: 10,
             width:60
           }}>
-            <table  >
+            <table   >
               <tr>
                 <th >نام سفارش دهنده</th>
                 <th>شماره تماس</th>

@@ -22,10 +22,10 @@ import Checkout from 'pages/checkout/checkout.component';
 import Bank from 'pages/peyment/Bank/Bank';
 import PaymentResultSuccess from 'pages/payment-result-success/PaymentResultSuccess.component';
 import PaymentResultFail from 'pages/payment-result-fail/paymentResultFail.component';
-import Edit from 'pages/panel-order/TableProducts/Edite/Edit';
+import ProductApprovalDetail from 'pages/panel-order/ProductApproval/ProductApprovalDetail/ProductApprovalDetail';
 import DetailOrder from 'pages/panel-order/AwaitingApproval/detailOrder/DetailOrder';
-
-
+import Edit from 'pages/panel-order/TableProducts/Edite/Edit';
+import EditPrice from 'pages/panel-order/editPrice/editPrice'
 
 
 const AppRoute = () => {
@@ -37,6 +37,8 @@ const AppRoute = () => {
         <Route path='/' element={<Home />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/TableProduct' element={<TableProduct />} />
+        <Route path='/TableProduct/modalAdd' element={<TableProduct />} />
+        <Route path='/TableProduct/Edit/:id' element={<Edit />} />
         <Route path='/Novel' element={<Novel />} />
         <Route path='/Entertain' element={<Entertain />} />
         <Route path='/Education' element={<Education />} />
@@ -49,9 +51,10 @@ const AppRoute = () => {
         <Route path='/Checkout/Bank/:userName' element={<Bank />} />
         <Route path='/PaymentResultSuccess/:userName' element={<PaymentResultSuccess />} />
         <Route path='/PaymentResultFail/:userName' element={<PaymentResultFail />} />
-        <Route path='/Edit/:id' element={<Edit />} />
         <Route path='/detailOrder/:id' element={<DetailOrder />} />
-       
+        <Route path='/ProductApproval/:id' element={<ProductApprovalDetail />} />
+        <Route path='/EditPrice' element={<EditPrice />} />
+      
       </Routes>
 
 

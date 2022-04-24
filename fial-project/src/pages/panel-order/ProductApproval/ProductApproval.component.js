@@ -5,7 +5,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import DoNotDisturbOnTotalSilenceIcon from '@mui/icons-material/DoNotDisturbOnTotalSilence';
-
+import { Link } from 'react-router-dom';
 
 
 function ProductApproval() {
@@ -37,7 +37,7 @@ function ProductApproval() {
      let firstName= ""
      let familyName= ""
      let addres= ""
-     let phoneNumber= ""
+     let number= ""
      let   BasketData = ""
      let sum = ""
   
@@ -48,7 +48,7 @@ function ProductApproval() {
            familyName= Get.familyName,
   
            addres= Get.addres,
-           phoneNumber= Get.phoneNumber,
+           number= Get.number,
            BasketData = Get.Basket,
            sum = Get.Sum
          )
@@ -59,7 +59,7 @@ function ProductApproval() {
        firstName,
         familyName,
         addres,
-        phoneNumber,
+        number,
         BasketData ,
         sum 
        }
@@ -86,7 +86,7 @@ function ProductApproval() {
         }}> <Box sx={{
           mt: 2,
           mr: 5
-        }}> <span> {Get.firstName}{Get.familyName}</span></Box></Box> </td>
+        }}><Link to={'/ProductApproval/'+Get.id}> <span> {Get.firstName} {Get.familyName}</span></Link></Box></Box> </td>
         <td>
           <Box sx={{
             mt: 2,
@@ -116,7 +116,7 @@ function ProductApproval() {
             }} startIcon={<LocalShippingIcon sx={{
               ml: 2,
             }} />}>
-              سفارش ارسال شد
+          سفارش به دست مشتری رسید
             </Button>
             <Button onClick={()=>handelPost(Get.id)} color='error' variant="outlined" sx={{
               width: 150,
@@ -125,7 +125,7 @@ function ProductApproval() {
               ml: 2,
   
             }} />}>
-              رد سفارش
+  برگشت سفارش
             </Button>
           </Box>
         </td>

@@ -20,3 +20,9 @@ table {
     width: 10px;
     height: 50px;
   }
+  .diNone{
+    display: none;
+  }
+  .diBlock{
+    display: block;
+  }

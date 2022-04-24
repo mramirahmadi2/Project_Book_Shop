@@ -42,7 +42,7 @@ function Bank() {
                 }}>پرداخت</Button></Link>
                 <Link to={"/PaymentResultFail/"+User.userName}> <Button variant="contained" onClick={()=>handelDelete(deleteUse)}  color="error">انصراف از خرید</Button></Link>
             </div>
-            <Link to={"/PaymentResultFail/"+User.userName}> <Button variant="contained" color="error">بازگشت</Button></Link>
+
         </div>
     )
 }
