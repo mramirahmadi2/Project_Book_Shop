@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './img/platinco_banksaman.png';
+import Form from './img/photo_2022-04-30_04-35-34.jpg';
 import './style.css';
 import { Link, useParams } from "react-router-dom";
 import axios from 'axios';
@@ -35,12 +35,21 @@ function Bank() {
     return (
         <div className='Bank' >
             <div className='FormData'>
-                <h4>{userName}</h4>
-                <img src={Form} alt="BankImg" /> <br/>
-               <Link to={"/PaymentResultSuccess/"+User.userName}> <Button variant="contained" color="success" sx={{
-                    ml:5,
+                <h4 className='userName'>{userName}</h4>
+                <img src={Form} alt="BankImg" className="BankImg" /> <br/>
+               <Link to={"/PaymentResultSuccess/"+User.userName}> <Button variant="contained" color="success" 
+                sx={{
+                    position:'absolute',
+                    left:400,
+                    top:350
+
                 }}>پرداخت</Button></Link>
-                <Link to={"/PaymentResultFail/"+User.userName}> <Button variant="contained" onClick={()=>handelDelete(deleteUse)}  color="error">انصراف از خرید</Button></Link>
+                <Link to={"/PaymentResultFail/"+User.userName}> <Button variant="contained" sx={{
+                    position:'absolute',
+                    mt:-8,
+                    ml:20
+
+                }} onClick={()=>handelDelete(deleteUse)}  color="error">انصراف از خرید</Button></Link>
             </div>
 
         </div>

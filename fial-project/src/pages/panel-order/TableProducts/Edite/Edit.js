@@ -197,6 +197,7 @@ function Edit() {
           <Box >
             <FormControl sx={{
               width: 200,
+              mt:1
             }}>
               <InputLabel id="demo-simple-select-label">گروه</InputLabel>
               <Select
@@ -236,9 +237,9 @@ function Edit() {
         </div>
       </RTL>
       <Button onClick={ handleSubmit}
-      variant="outlined" sx={{
+      variant="contained" sx={{
           mr: 100,
-          mt: -5
+          mt: -25
       }} startIcon={<AddCircleOutlineSharpIcon sx={{
           ml: 2,
 

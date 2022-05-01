@@ -15,7 +15,7 @@ function Basket() {
   console.log("ok");
   const [isActive, setActive] = React.useState("false");
   const [Get, setGet] = React.useState(null);
-  
+  const baseUrl= `http://localhost:3002/basket`
 
   
 
@@ -47,15 +47,43 @@ function Basket() {
   async function Delete(id) {
     await axios.delete(`http://localhost:3002/basket/${id}`);
     window.location.reload();
+ 
   }
 
  const handleToggle = async(id) => {
   setActive(!isActive);
   await axios.delete(`http://localhost:3002/basket/${id}`);
-  // window.location.reload();
+  setGet(Get.filter((p) => p.id !== id));
 };
 
 let counter = 0;
+
+const handleUpdate = async (post) => {
+ let CounterNow = post.counter;
+  // CounterNow +=1 ;
+  let title = post.title;
+  let group = post.group;
+  let writer = post.writer;
+  let price = post.price;
+  let number = post.number;
+  let image = post.image;
+ 
+  const order = {
+    title,
+    group,
+    writer,
+    price,
+    number,
+    image,
+    CounterNow,
+  };
+ 
+  await axios.post(`http://localhost:3002/basket`,order);
+ 
+  setGet([order, ...Get]);
+  
+  
+};
 
   const handelPlus = (id) => {
     
@@ -78,8 +106,6 @@ let counter = 0;
     });
 
     if (counter < number) {
-     
-    
       Delete(id);
       counter = counter + 1;
       const order = {
@@ -103,6 +129,8 @@ let counter = 0;
 
       console.log("ok");
       window.location.reload();
+    }else{
+      alert(`تعداد سفارش شما بیشتر از موجدی این کتاب در انبار است`)
     }
   };
 
